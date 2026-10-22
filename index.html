@@ -377,7 +377,7 @@
       "ខ្សែភាពយន្តប្រឡងសិល្បៈចុងក្រោយរបស់ខ្ញុំ សម្រាប់ការបញ្ចប់ការសិក្សានៅ Sint-Lukas Brussels។ <em>Trial and Error</em> បង្ហាញពីដំណើរការនៃការរៀនបច្ចេកទេសជិះស្គេតថ្មីមួយ ម្ដងហើយម្ដងទៀត។",
     "<a href=\"#video\">Trial and Error</a>, final art exam film, Sint-Lukas Brussels": "<a href=\"#video\">Trial and Error</a> ខ្សែភាពយន្តប្រឡងសិល្បៈចុងក្រោយ, Sint-Lukas Brussels",
     "Shop": "ហាង", "Buy print": "ទិញរូបថតបោះពុម្ព", "Available soon": "មកដល់ឆាប់ៗ", "Size": "ទំហំ",
-    "Orders open on 3 January 2027": "ការបញ្ជាទិញបើកចាប់ពីថ្ងៃទី 3 ខែមករា ឆ្នាំ 2027",
+    "Orders open on 1 December 2026": "ការបញ្ជាទិញបើកចាប់ពីថ្ងៃទី 1 ខែធ្នូ ឆ្នាំ 2026",
     "Until then, you can browse the prints below.": "រហូតដល់ពេលនោះ អ្នកអាចមើលរូបថតបោះពុម្ពខាងក្រោម។",
     "Limited editions of <em>Canvas</em>, <em>Amelie</em> and <em>Boy</em> are available on request. <a href=\"#contact\">Get in touch</a>.":
       "ការបោះពុម្ពចំនួនកំណត់នៃ <em>Canvas</em>, <em>Amelie</em> និង <em>Boy</em> អាចរកបានតាមការស្នើសុំ។ <a href=\"#contact\">ទាក់ទងមកខ្ញុំ</a>។",
@@ -426,7 +426,7 @@
       "Mon film d’examen final pour mon diplôme à Sint-Lukas Bruxelles. <em>Trial and Error</em> suit le processus d’apprentissage d’un nouveau trick de skateboard, essai après essai.",
     "<a href=\"#video\">Trial and Error</a>, final art exam film, Sint-Lukas Brussels": "<a href=\"#video\">Trial and Error</a>, film d’examen final, Sint-Lukas Bruxelles",
     "Shop": "Boutique", "Buy print": "Acheter le tirage", "Available soon": "Bientôt disponible", "Size": "Format",
-    "Orders open on 3 January 2027": "Commandes ouvertes à partir du 3 janvier 2027",
+    "Orders open on 1 December 2026": "Commandes ouvertes à partir du 1er décembre 2026",
     "Until then, you can browse the prints below.": "D’ici là, vous pouvez découvrir les tirages ci-dessous.",
     "Limited editions of <em>Canvas</em>, <em>Amelie</em> and <em>Boy</em> are available on request. <a href=\"#contact\">Get in touch</a>.":
       "Des éditions limitées de <em>Canvas</em>, <em>Amelie</em> et <em>Boy</em> sont disponibles sur demande. <a href=\"#contact\">Contactez-moi</a>.",
@@ -514,12 +514,12 @@
       sizes: ["a4"], links: { a4: "https://buy.stripe.com/cNi7sM4FM4IgagZdt91gs03" } }
   ];
 
-  /* Ordering opened on 22 October 2026 (Belgian time); before that the buttons only announce the date.
+  /* Ordering opens on 1 December 2026 (Belgian time); before that the buttons only announce the date.
      Adding ?shop=open to the address opens the shop early, for testing the checkout. */
-  var SHOP_OPENS = new Date("2026-10-22T00:00:00+02:00");
+  var SHOP_OPENS = new Date("2026-12-01T00:00:00+01:00");
   var SHOP_PREVIEW = /[?&]shop=open(&|$)/.test(location.search);
   function shopOpen() { return SHOP_PREVIEW || Date.now() >= SHOP_OPENS.getTime(); }
-  var SHOP_OPENS_TEXT = ["Orders open on 3 January 2027", "ご注文は2027年1月3日から受け付けます"];
+  var SHOP_OPENS_TEXT = ["Orders open on 1 December 2026", "ご注文は2026年12月1日から受け付けます"];
 
   function buyControl(p, sizeKey) {
     var link = p.links[sizeKey];
