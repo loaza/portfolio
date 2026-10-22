@@ -175,6 +175,8 @@
   .reel { position: relative; width: 100%; max-width: 100%; aspect-ratio: 16 / 9; background: var(--frame); overflow: hidden; }
   .reel .frame16 { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity 1.4s ease; }
   .reel .frame16.on { opacity: 1; pointer-events: auto; }
+  .reel .frame16.photo { background: var(--wall); }
+  .reel .frame16.photo img { object-fit: contain; }
   .reel .frame16 img { transform: scale(1); transform-origin: 50% 50%; }
   .reel .frame16.on img.in { animation: drift 5s linear forwards; }
   @keyframes drift { from { transform: scale(1); } to { transform: scale(1.07); } }
@@ -307,6 +309,7 @@
     "Canvas IV": "ផ្ទាំងក្រណាត់ IV", "Canvas V": "ផ្ទាំងក្រណាត់ V", "Boy": "ក្មេងប្រុស",
     "Boy I": "ក្មេងប្រុស I", "Boy II": "ក្មេងប្រុស II", "Boy III": "ក្មេងប្រុស III", "Boy IV": "ក្មេងប្រុស IV",
     "Boy V": "ក្មេងប្រុស V", "Boy VI": "ក្មេងប្រុស VI", "Boy VII": "ក្មេងប្រុស VII",
+    "Canvas I, 2025": "ផ្ទាំងក្រណាត់ I, 2025", "Boy I, 2026": "ក្មេងប្រុស I, 2026", "Amelie III, 2026": "Amelie III, 2026",
     "Canvas Analysis": "ការវិភាគផ្ទាំងក្រណាត់", "Canvas Analysis I": "ការវិភាគផ្ទាំងក្រណាត់ I", "Canvas Analysis II": "ការវិភាគផ្ទាំងក្រណាត់ II",
     "Canvas Analysis III": "ការវិភាគផ្ទាំងក្រណាត់ III", "Canvas Analysis IV": "ការវិភាគផ្ទាំងក្រណាត់ IV", "Canvas Analysis V": "ការវិភាគផ្ទាំងក្រណាត់ V",
     "Canvas Analysis VI": "ការវិភាគផ្ទាំងក្រណាត់ VI",
@@ -374,6 +377,14 @@
       desc: ["A skate film about a group of friends and the time they spend together: skating through the city, waiting on stairs, and filming each other in between. I filmed and edited the whole video and skated as part of the crew. It began as a project between friends and went on to become a viral video. Thanks to local legend filmer Moica for assisting on the second angle.",
         "仲間たちと過ごす時間を描いたスケートフィルム。街を滑り、階段で待ち、その合間にお互いを撮り合う日々。撮影と編集のすべてを手がけ、クルーの一員としても滑った。友人同士のプロジェクトとして始まり、のちに多くの人に広まる映像となった。セカンドアングルの撮影をサポートしてくれた地元のレジェンド・フィルマー、Moicaに感謝。"] }
   ];
+  /* Home slideshow: photographs first, alternating with the two films. */
+  var HOME_REEL = [
+    { photo: "canvas.jpg", href: "#canvas", caption: ["Canvas I, 2025", "キャンバス I、2025年"] },
+    VIDEOS[0],
+    { photo: "boy.jpg", href: "#boy", caption: ["Boy I, 2026", "少年 I、2026年"] },
+    VIDEOS[1],
+    { photo: "amelie-3.jpg", href: "#amelie", caption: ["Amelie III, 2026", "Amelie III、2026年"] }
+  ];
 
   /* ---------- helpers ---------- */
   function img(src, alt, cls) {
@@ -391,8 +402,11 @@
   function reelBlock(list) {
     return '<div class="media"><div class="reel">' +
       list.map(function (v, i) {
-        return '<a class="frame16' + (i === 0 ? ' on' : '') + '" href="' + v.url + '" target="_blank" rel="noopener" aria-label="' + L(["Play video: ", "動画を再生："]) + L(v.caption) + '"' + (i === 0 ? '' : ' tabindex="-1"') + '>' +
-          img(v.cover || motifs.horizon(1600, 900, v.tone), "") + '<span class="play"><span></span></span></a>';
+        // Photos open their series page; films open YouTube.
+        var link = v.photo ? '" href="' + v.href + '" aria-label="' + L(v.caption)
+          : '" href="' + v.url + '" target="_blank" rel="noopener" aria-label="' + L(["Play video: ", "動画を再生："]) + L(v.caption);
+        return '<a class="frame16' + (v.photo ? ' photo' : '') + (i === 0 ? ' on' : '') + link + '"' + (i === 0 ? '' : ' tabindex="-1"') + '>' +
+          img(v.photo || v.cover || motifs.horizon(1600, 900, v.tone), "") + (v.photo ? '' : '<span class="play"><span></span></span>') + '</a>';
       }).join("") + '</div>' +
       '<div class="reel-caps">' + list.map(function (v, i) {
         return '<div class="caption center' + (i === 0 ? ' on' : '') + '">' + L(v.caption) + '</div>';
@@ -462,7 +476,7 @@
 
   /* ---------- pages ---------- */
   var PAGES = {
-    home: function () { return '<section class="page">' + reelBlock(VIDEOS) + '</section>'; },
+    home: function () { return '<section class="page">' + reelBlock(HOME_REEL) + '</section>'; },
     artworks: function () { return indexPage(ARTWORKS, ["Artworks", "作品"]); },
     video: function () {
       return '<section class="page videos"><h1 class="page-title">' + L(["Video", "映像"]) + '</h1>' + VIDEOS.map(function (v) { return videoBlock(v, true); }).join("") + '</section>';
