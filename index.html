@@ -666,7 +666,7 @@
     },
     shop: function () {
       return '<section class="page shop"><h1 class="page-title">' + L(["Shop", "ショップ"]) + '</h1>' +
-        (shopOpen() ? '' : '<p class="shop-notice">' + L(SHOP_OPENS_TEXT) + '. ' + L(["Until then, you can browse the prints below.", "それまでは、下のプリントをご覧いただけます。"]) + '</p>') +
+        (shopOpen() ? '' : '<p class="shop-notice">' + L(SHOP_OPENS_TEXT) + (lang === "ja" ? "。" : lang === "km" ? "។ " : ". ") + L(["Until then, you can browse the prints below.", "それまでは、下のプリントをご覧いただけます。"]) + '</p>') +
         '<p class="series-intro">' + L([SHOP_INTRO, "すべてのプリントは受注制作で、Ilford Prestige Smooth Pearl（310g、細かなパール面で深い黒と繊細なディテールを保つ写真用紙）にインクジェットで印刷します。"]) + '</p>' +
         '<p class="shop-shipping">' + L([SHOP_SHIPPING, "送料（お支払い時にお選びください）：<br>ベルギー – 追跡付き配送 · €7 · <span class=\"nowrap\">3〜5営業日</span><br>その他のヨーロッパ – 追跡付き配送 · €15 · <span class=\"nowrap\">12〜20営業日</span>"]) + '</p>' +
         '<div class="shop-grid">' + SHOP.map(shopItem).join("") + '</div>' +
