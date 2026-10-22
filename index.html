@@ -195,7 +195,8 @@
     color: var(--current); border: 1px solid #3a3a38;
   }
   .shop .shop-notice + .series-intro { margin-top: 0; }
-  .shop-shipping { max-width: 600px; margin: -24px auto 64px; text-align: center; font-size: 13px; letter-spacing: .04em; color: var(--current); }
+  .nowrap { white-space: nowrap; }
+  .shop-shipping { max-width: 600px; margin: -24px auto 64px; text-align: center; font-size: 13px; line-height: 1.9; letter-spacing: .04em; color: var(--current); }
   .shop-note { max-width: 600px; margin: 112px auto 0; text-align: center; font-size: 13px; color: var(--caption); }
   .shop-note a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
   .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -329,7 +330,7 @@
   };
 
   /* ---------- content ---------- */
-  var SHOP_SHIPPING = "Shipping: Belgium €7 · rest of Europe €15, chosen at checkout.";
+  var SHOP_SHIPPING = "Shipping, chosen at checkout:<br>Belgium – tracked shipping · €7 · <span class=\"nowrap\">3–5 business days</span><br>Rest of Europe – tracked shipping · €15 · <span class=\"nowrap\">12–20 business days</span>";
   var SHOP_INTRO = "Each print is made to order as an inkjet print on Ilford Prestige Smooth Pearl, a 310 g photo paper with a fine pearl surface that keeps deep blacks and soft detail. Please allow around 14 days for delivery.";
   var GIRL_INTRO = "<em>Girl</em> is a small series of photographs taken while filming <a href=\"#video\"><em>What Time Leaves Behind</em></a>. Between takes, the nature around me caught my attention, and I tried to capture the same atmosphere as the film, but this time in still images.";
   var ANALYSIS_INTRO = "<em>Canvas Analysis</em> is a series of scans of the canvases used in <em>Canvas</em>. Seen flat and without a body, the fabric shows the transferred photographs on their own: partly faded, sometimes only in fragments.";
@@ -389,7 +390,7 @@
     "<a href=\"#girl\">Girl</a>, 2 photographs, taken while filming What Time Leaves Behind": "<a href=\"#girl\">ក្មេងស្រី</a> រូបថត 2 ថតក្នុងពេលថត What Time Leaves Behind",
     "Email": "អ៊ីមែល"
   };
-  KM[SHOP_SHIPPING] = "ថ្លៃដឹកជញ្ជូន៖ បែលហ្ស៊ិក €7 · ប្រទេសផ្សេងទៀតនៅអឺរ៉ុប €15 ជ្រើសរើសនៅពេលទូទាត់ប្រាក់។";
+  KM[SHOP_SHIPPING] = "ការដឹកជញ្ជូន ជ្រើសរើសនៅពេលទូទាត់ប្រាក់៖<br>បែលហ្ស៊ិក – ការដឹកជញ្ជូនអាចតាមដានបាន · €7 · <span class=\"nowrap\">3–5 ថ្ងៃធ្វើការ</span><br>ប្រទេសផ្សេងទៀតនៅអឺរ៉ុប – ការដឹកជញ្ជូនអាចតាមដានបាន · €15 · <span class=\"nowrap\">12–20 ថ្ងៃធ្វើការ</span>";
   KM[SHOP_INTRO] = "រូបថតបោះពុម្ពនីមួយៗត្រូវបានធ្វើតាមការបញ្ជាទិញ ដោយបោះពុម្ពទឹកខ្មៅលើក្រដាស Ilford Prestige Smooth Pearl ដែលជាក្រដាសរូបថត 310 ក្រាម មានផ្ទៃពណ៌គុជល្អិត រក្សាពណ៌ខ្មៅជ្រៅ និងព័ត៌មានលម្អិតទន់ភ្លន់។ សូមរង់ចាំប្រហែល 14 ថ្ងៃសម្រាប់ការដឹកជញ្ជូន។";
   KM[GIRL_INTRO] = "<em>Girl</em> គឺជាស៊េរីរូបថតតូចមួយ ដែលថតក្នុងពេលថតខ្សែភាពយន្ត <a href=\"#video\"><em>What Time Leaves Behind</em></a>។ នៅចន្លោះការថត ធម្មជាតិនៅជុំវិញខ្ញុំបានទាក់ទាញចំណាប់អារម្មណ៍ ហើយខ្ញុំបានព្យាយាមចាប់យកបរិយាកាសដូចគ្នានឹងខ្សែភាពយន្ត ប៉ុន្តែលើកនេះជារូបថតនៅស្ងៀម។";
   KM[ANALYSIS_INTRO] = "<em>Canvas Analysis</em> គឺជាស៊េរីនៃការស្កេនផ្ទាំងក្រណាត់ដែលបានប្រើក្នុង <em>Canvas</em>។ នៅពេលមើលដោយដាក់សំប៉ែត និងគ្មានរាងកាយ ក្រណាត់បង្ហាញតែរូបថតដែលបានផ្ទេរ៖ ខ្លះរសាត់ ហើយពេលខ្លះនៅសល់តែជាបំណែកៗ។";
@@ -438,7 +439,7 @@
     "<a href=\"#girl\">Girl</a>, 2 photographs, taken while filming What Time Leaves Behind": "<a href=\"#girl\">Girl</a>, 2 photographies, prises pendant le tournage de What Time Leaves Behind",
     "Email": "E-mail"
   };
-  FR[SHOP_SHIPPING] = "Livraison : Belgique 7 € · reste de l’Europe 15 €, à choisir lors du paiement.";
+  FR[SHOP_SHIPPING] = "Livraison, à choisir lors du paiement :<br>Belgique – envoi suivi · 7 € · <span class=\"nowrap\">3 à 5 jours ouvrables</span><br>Reste de l’Europe – envoi suivi · 15 € · <span class=\"nowrap\">12 à 20 jours ouvrables</span>";
   FR[SHOP_INTRO] = "Chaque tirage est réalisé à la commande, en impression jet d’encre sur Ilford Prestige Smooth Pearl, un papier photo de 310 g à la surface finement perlée, qui garde des noirs profonds et des détails doux. Comptez environ 14 jours pour la livraison.";
   FR[GIRL_INTRO] = "<em>Girl</em> est une petite série de photographies prises pendant le tournage de <a href=\"#video\"><em>What Time Leaves Behind</em></a>. Entre deux prises, la nature autour de moi a attiré mon regard, et j’ai essayé de retrouver la même atmosphère que dans le film, mais cette fois en images fixes.";
   FR[ANALYSIS_INTRO] = "<em>Canvas Analysis</em> est une série de scans des toiles utilisées dans <em>Canvas</em>. Vues à plat et sans corps, les toiles montrent les photographies transférées pour elles-mêmes : en partie effacées, parfois seulement en fragments.";
@@ -667,7 +668,7 @@
       return '<section class="page shop"><h1 class="page-title">' + L(["Shop", "ショップ"]) + '</h1>' +
         (shopOpen() ? '' : '<p class="shop-notice">' + L(SHOP_OPENS_TEXT) + '. ' + L(["Until then, you can browse the prints below.", "それまでは、下のプリントをご覧いただけます。"]) + '</p>') +
         '<p class="series-intro">' + L([SHOP_INTRO, "すべてのプリントは受注制作で、Ilford Prestige Smooth Pearl（310g、細かなパール面で深い黒と繊細なディテールを保つ写真用紙）にインクジェットで印刷します。お届けまで約14日ほどお待ちください。"]) + '</p>' +
-        '<p class="shop-shipping">' + L([SHOP_SHIPPING, "送料：ベルギー €7・その他のヨーロッパ €15（お支払い時にお選びください）。"]) + '</p>' +
+        '<p class="shop-shipping">' + L([SHOP_SHIPPING, "送料（お支払い時にお選びください）：<br>ベルギー – 追跡付き配送 · €7 · <span class=\"nowrap\">3〜5営業日</span><br>その他のヨーロッパ – 追跡付き配送 · €15 · <span class=\"nowrap\">12〜20営業日</span>"]) + '</p>' +
         '<div class="shop-grid">' + SHOP.map(shopItem).join("") + '</div>' +
         '<p class="shop-note">' + L(["Limited editions of <em>Canvas</em>, <em>Amelie</em> and <em>Boy</em> are available on request. <a href=\"#contact\">Get in touch</a>.",
           "『キャンバス』『Amelie』『少年』の限定エディションはご相談に応じます。<a href=\"#contact\">お問い合わせ</a>ください。"]) + '</p>' +
