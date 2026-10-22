@@ -72,7 +72,7 @@
   .lang-row { max-width: 1100px; margin: 14px auto 0; display: flex; justify-content: flex-end; gap: 14px; }
   .lang[aria-pressed="true"] { color: var(--active); }
   /* Letter-spacing pulls Khmer clusters apart, so Khmer text is set without it. */
-  html[lang="km"] body * { letter-spacing: 0 !important; }
+  html[lang="km"] body *:not(.wordmark) { letter-spacing: 0 !important; }
   .lang {
     background: none; border: 0; padding: 0; cursor: pointer;
     font-family: var(--sans); font-size: 11px; letter-spacing: .08em;
@@ -335,7 +335,7 @@
     "<a href=\"#boy\">Boy</a>, 7 photographs": "<a href=\"#boy\">ក្មេងប្រុស</a> រូបថត 7",
     "<a href=\"#canvas-analysis\">Canvas Analysis</a>, 6 works": "<a href=\"#canvas-analysis\">ការវិភាគផ្ទាំងក្រណាត់</a> ស្នាដៃ 6",
     "<a href=\"#girl\">Girl</a>, 2 stills from What Time Leaves Behind": "<a href=\"#girl\">ក្មេងស្រី</a> រូបភាព 2 ពី What Time Leaves Behind",
-    "Studio": "ស្ទូឌីយោ", "Belgium": "បែលហ្ស៊ិក", "Email": "អ៊ីមែល"
+    "Email": "អ៊ីមែល"
   };
   function L(p) {
     if (typeof p === "string" || typeof p === "number") return p;
@@ -495,7 +495,6 @@
     },
     contact: function () {
       return '<section class="narrow text contact"><h1 class="page-title">' + L(["Contact", "お問い合わせ"]) + '</h1>' +
-        '<p><span class="label">' + L(["Studio", "スタジオ"]) + '</span>Pich Sann Studio<br>Pastoriestraat 24<br>1651 Lot, ' + L(["Belgium", "ベルギー"]) + '</p>' +
         '<p><span class="label">' + L(["Email", "メール"]) + '</span><span style="user-select:all">pichsannz@gmail.com</span></p>' +
         '<p><span class="label">Instagram</span><a href="https://www.instagram.com/pek.oo0z/" target="_blank" rel="noopener">@pek.oo0z</a></p>' +
         '</section>';
