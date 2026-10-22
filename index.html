@@ -165,7 +165,8 @@
   }
   .viewer.open { opacity: 1; pointer-events: auto; }
   .viewer img { max-width: 100%; max-height: 84vh; width: auto; height: auto; display: block; }
-  .series-intro { max-width: 520px; margin: 0 auto 96px; text-align: center; font-size: 13px; color: var(--caption); }
+  .series-intro { max-width: 600px; margin: -24px auto 88px; font-size: 13px; line-height: 1.85; color: var(--link); text-wrap: pretty; }
+  .series-intro em { font-style: italic; }
 
   /* Video */
   .videos .media { margin-bottom: 140px; }
@@ -298,7 +299,8 @@
     }
   };
 
-  /* ---------- content (placeholders) ---------- */
+  /* ---------- content ---------- */
+  var CANVAS_INTRO = "<em>Canvas</em> is a series of photographs made for my end-of-year exam, about how close skin and canvas are to each other. We cover ourselves with fabric as a protective layer: it hides who we are, but it also gives us a feeling of comfort and safety. The prints began on ramps and ledges, in the scratches and scrapes left by everyone who jumped, slid and fell there before. Transferred onto recycled canvas and laid on the body, those traces become, like <em>What Time Leaves Behind</em>, a record of what the past leaves behind.";
   /* Every visible string is a pair [English, Japanese]; Khmer lives in KM, keyed by the English text.
      L() picks the current language and falls back to English where no translation exists. */
   var KM = {
@@ -344,6 +346,7 @@
     "<a href=\"#girl\">Girl</a>, 2 stills from What Time Leaves Behind": "<a href=\"#girl\">ក្មេងស្រី</a> រូបភាព 2 ពី What Time Leaves Behind",
     "Email": "អ៊ីមែល"
   };
+  KM[CANVAS_INTRO] = "<em>Canvas</em> គឺជាស៊េរីរូបថតដែលខ្ញុំបានបង្កើតសម្រាប់ការប្រឡងបញ្ចប់ឆ្នាំសិក្សា អំពីភាពជិតស្និទ្ធរវាងស្បែក និងផ្ទាំងក្រណាត់។ យើងគ្របខ្លួនយើងដោយក្រណាត់ ដូចជាស្រទាប់ការពារ៖ វាលាក់បាំងថាយើងជានរណា ប៉ុន្តែវាក៏ផ្ដល់ឱ្យយើងនូវអារម្មណ៍កក់ក្ដៅ និងសុវត្ថិភាពផងដែរ។ ស្នាមបោះពុម្ពទាំងនេះចាប់ផ្ដើមនៅលើជម្រាល និងគែម ក្នុងស្នាមកោស និងស្នាមរលាត់ ដែលបន្សល់ទុកដោយអ្នកទាំងឡាយដែលបានលោត រអិល និងដួលនៅទីនោះពីមុនមក។ នៅពេលផ្ទេរទៅលើផ្ទាំងក្រណាត់កែច្នៃឡើងវិញ ហើយដាក់លើរាងកាយ ស្នាមទាំងនោះក្លាយជាកំណត់ត្រានៃអ្វីដែលអតីតកាលបន្សល់ទុក ដូចនៅក្នុង <em>What Time Leaves Behind</em> ដែរ។";
   /* French, keyed by the English text like KM. Series and work titles stay in their original English. */
   var FR = {
     "Menu": "Menu", "Close": "Fermer", "Play video: ": "Lire la vidéo : ",
@@ -378,6 +381,7 @@
     "<a href=\"#girl\">Girl</a>, 2 stills from What Time Leaves Behind": "<a href=\"#girl\">Girl</a>, 2 images extraites de What Time Leaves Behind",
     "Email": "E-mail"
   };
+  FR[CANVAS_INTRO] = "<em>Canvas</em> est une série de photographies réalisée pour mon examen de fin d’année, sur la proximité entre la peau et la toile. Nous nous couvrons de tissu comme d’une couche protectrice : il cache qui nous sommes, mais il nous apporte aussi un sentiment de confort et de sécurité. Les impressions sont nées sur des rampes et des rebords, dans les rayures et les éraflures laissées par tous ceux qui y ont sauté, glissé et chuté avant moi. Transférées sur de la toile recyclée et posées sur le corps, ces traces deviennent, comme dans <em>What Time Leaves Behind</em>, la mémoire de ce que le passé laisse derrière lui.";
   function L(p) {
     if (typeof p === "string" || typeof p === "number") return p;
     if (lang === "km") return KM[p[0]] || p[0];
@@ -386,6 +390,7 @@
   }
   var ARTWORKS = [
     { id: "canvas", title: ["Canvas", "キャンバス"], src: "canvas.jpg",
+      intro: [CANVAS_INTRO, "『キャンバス』は、学年末の試験のために制作した写真シリーズで、肌とキャンバスがいかに近い存在であるかを扱っている。私たちは布で身を覆い、それを守りの層とする。布は私たちが何者であるかを隠すと同時に、安らぎと安心感も与えてくれる。プリントの出発点は、ランプやレッジに残された傷や擦れ跡、そこで先に跳び、滑り、転んだ人たちの痕跡だった。再利用したキャンバスに写し取り、身体に重ねることで、それらの痕跡は『時が残すもの』と同じく、過去が残していくものの記録となる。"],
       works: [[["Canvas I", "キャンバス I"], 2025, "canvas.jpg"], [["Canvas II", "キャンバス II"], 2025, "canvas-2.jpg"], [["Canvas III", "キャンバス III"], 2025, "canvas-3.jpg"],
         [["Canvas IV", "キャンバス IV"], 2025, "canvas-4.jpg"], [["Canvas V", "キャンバス V"], 2025, "canvas-5.jpg"]] },
     { id: "amelie", title: ["Amelie", "Amelie"], src: "amelie-1.jpg",
