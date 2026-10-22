@@ -16,6 +16,7 @@
     --mark: #2a2a2a;
     --link: #dbdfe1;
     --active: #6f8a96;
+    --current: #ffffff;
     --caption: #d0d3d5;
     --frame: #737373;
     --serif: "Cormorant SC", "Trajan Pro", "Cormorant Garamond", Georgia, serif;
@@ -68,9 +69,11 @@
     text-transform: uppercase;
     color: var(--link);
   }
-  nav.main a[aria-current="page"], .overlay a[aria-current="page"] { color: var(--active); }
+  nav.main a[aria-current="page"], .overlay a[aria-current="page"] {
+    color: var(--current); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px;
+  }
   .lang-row { max-width: 1100px; margin: 14px auto 0; display: flex; justify-content: flex-end; gap: 14px; }
-  .lang[aria-pressed="true"] { color: var(--active); }
+  .lang[aria-pressed="true"] { color: var(--current); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
   /* Letter-spacing pulls Khmer clusters apart, so Khmer text is set without it. */
   html[lang="km"] body *:not(.wordmark) { letter-spacing: 0 !important; }
   .lang {
@@ -246,7 +249,7 @@
     { id: "artworks", en: "Artworks", ja: "作品", km: "ស្នាដៃសិល្បៈ" },
     { id: "video", en: "Video", ja: "映像", km: "វីដេអូ" },
     { id: "biography", en: "Biography", ja: "略歴", km: "ជីវប្រវត្តិ" },
-    { id: "bibliography", en: "Bibliography", ja: "文献", km: "គន្ថនិទ្ទេស" },
+    { id: "works", en: "Works", ja: "作品リスト", km: "បញ្ជីស្នាដៃ" },
     { id: "contact", en: "Contact", ja: "お問い合わせ", km: "ទំនាក់ទំនង" }
   ];
   var lang = "en";
@@ -298,7 +301,7 @@
   var KM = {
     "Menu": "ម៉ឺនុយ", "Close": "បិទ", "Play video: ": "ចាក់វីដេអូ៖ ",
     "Artworks": "ស្នាដៃសិល្បៈ", "Video": "វីដេអូ",
-    "Biography": "ជីវប្រវត្តិ", "Bibliography": "គន្ថនិទ្ទេស", "Contact": "ទំនាក់ទំនង",
+    "Biography": "ជីវប្រវត្តិ", "Works": "បញ្ជីស្នាដៃ", "Contact": "ទំនាក់ទំនង",
     "Back to Artworks": "ត្រឡប់ទៅស្នាដៃសិល្បៈ",
     "Canvas": "ផ្ទាំងក្រណាត់", "Canvas I": "ផ្ទាំងក្រណាត់ I", "Canvas II": "ផ្ទាំងក្រណាត់ II", "Canvas III": "ផ្ទាំងក្រណាត់ III",
     "Canvas IV": "ផ្ទាំងក្រណាត់ IV", "Canvas V": "ផ្ទាំងក្រណាត់ V", "Boy": "ក្មេងប្រុស",
@@ -480,8 +483,8 @@
           ["2025", ["Graduation exhibition, Sint-Lukas Brussels (open to the public)", "卒業展、シント・ルーカス・ブリュッセル（一般公開）"]]]) +
         '</section>';
     },
-    bibliography: function () {
-      return '<section class="narrow text"><h1 class="page-title">' + L(["Bibliography", "文献"]) + '</h1>' +
+    works: function () {
+      return '<section class="narrow text"><h1 class="page-title">' + L(["Works", "作品リスト"]) + '</h1>' +
         h(["Film", "映像作品"]) + chron([
           ["2026", ["<a href=\"#video\">Screenagers</a>, skate film, filmed and edited", "<a href=\"#video\">『Screenagers』</a>スケートフィルム、撮影・編集"]],
           ["2026", ["<a href=\"#video\">What Time Leaves Behind</a>, end-of-year project, Kunstinstituut Gent", "<a href=\"#video\">『時が残すもの』</a>、学年末制作、Kunstinstituut Gent"]]]) +
