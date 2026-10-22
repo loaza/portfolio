@@ -227,6 +227,7 @@
   <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="overlay">Menu</button>
   <div class="lang-row" id="langRow">
     <button class="lang" data-lang="en" aria-pressed="true">English</button>
+    <button class="lang" data-lang="fr" aria-pressed="false" lang="fr">Français</button>
     <button class="lang" data-lang="ja" aria-pressed="false" lang="ja">日本語</button>
     <button class="lang" data-lang="km" aria-pressed="false" lang="km">ខ្មែរ</button>
   </div>
@@ -247,12 +248,12 @@
 <script>
 (function () {
   var NAV = [
-    { id: "home", en: "Home", ja: "ホーム", km: "ទំព័រដើម" },
-    { id: "artworks", en: "Artworks", ja: "作品", km: "ស្នាដៃសិល្បៈ" },
-    { id: "video", en: "Video", ja: "映像", km: "វីដេអូ" },
-    { id: "biography", en: "Biography", ja: "略歴", km: "ជីវប្រវត្តិ" },
-    { id: "works", en: "Works", ja: "作品リスト", km: "បញ្ជីស្នាដៃ" },
-    { id: "contact", en: "Contact", ja: "お問い合わせ", km: "ទំនាក់ទំនង" }
+    { id: "home", en: "Home", fr: "Accueil", ja: "ホーム", km: "ទំព័រដើម" },
+    { id: "artworks", en: "Artworks", fr: "Œuvres", ja: "作品", km: "ស្នាដៃសិល្បៈ" },
+    { id: "video", en: "Video", fr: "Vidéo", ja: "映像", km: "វីដេអូ" },
+    { id: "biography", en: "Biography", fr: "Biographie", ja: "略歴", km: "ជីវប្រវត្តិ" },
+    { id: "works", en: "Works", fr: "Liste des œuvres", ja: "作品リスト", km: "បញ្ជីស្នាដៃ" },
+    { id: "contact", en: "Contact", fr: "Contact", ja: "お問い合わせ", km: "ទំនាក់ទំនង" }
   ];
   var lang = "en";
 
@@ -343,9 +344,44 @@
     "<a href=\"#girl\">Girl</a>, 2 stills from What Time Leaves Behind": "<a href=\"#girl\">ក្មេងស្រី</a> រូបភាព 2 ពី What Time Leaves Behind",
     "Email": "អ៊ីមែល"
   };
+  /* French, keyed by the English text like KM. Series and work titles stay in their original English. */
+  var FR = {
+    "Menu": "Menu", "Close": "Fermer", "Play video: ": "Lire la vidéo : ",
+    "Artworks": "Œuvres", "Video": "Vidéo", "Biography": "Biographie", "Works": "Liste des œuvres", "Contact": "Contact",
+    "Back to Artworks": "Retour aux œuvres",
+    "Stills from the film <a href=\"#video\">What Time Leaves Behind</a>.": "Images extraites du film <a href=\"#video\">What Time Leaves Behind</a>.",
+    "What Time Leaves Behind, a film by Pich Sann, end-of-year project, Kunstinstituut Gent, 2026": "What Time Leaves Behind, un film de Pich Sann, projet de fin d’année, Kunstinstituut Gent, 2026",
+    "A girl moves through the things my parents carried with them when they came to Belgium. The books in this film were all they had to learn about their new country: its culture, its language, its ways of living. What Time Leaves Behind returns to these objects to ask what remains of a beginning, long after it has passed.":
+      "Une jeune fille parcourt les objets que mes parents ont emportés en arrivant en Belgique. Les livres de ce film étaient tout ce qu’ils avaient pour découvrir leur nouveau pays : sa culture, sa langue, sa manière de vivre. What Time Leaves Behind revient vers ces objets pour se demander ce qui reste d’un commencement, longtemps après qu’il est passé.",
+    "Pich Sann is a photographer and video artist based in Belgium, with a passion for skateboarding. He began secondary school in 2019 at Don Bosco Halle, studying graphic design, and in 2022 moved to Sint-Lukas Brussels to study audiovisual and visual arts, graduating in 2025. He then studied photography at Kunstinstituut Gent, graduating in 2026, and now continues his photography studies at Narafi in Brussels.":
+      "Pich Sann est photographe et artiste vidéo, basé en Belgique et passionné de skateboard. Il commence l’enseignement secondaire en 2019 à Don Bosco Halle, en graphisme, puis rejoint en 2022 Sint-Lukas Bruxelles pour étudier l’audiovisuel et les arts visuels, dont il sort diplômé en 2025. Il étudie ensuite la photographie au Kunstinstituut Gent, diplômé en 2026, et poursuit aujourd’hui ses études de photographie à Narafi, à Bruxelles.",
+    "He started skateboarding in 2020. It gave him another way of seeing: an eye for the city, for movement, and for the moments in between, which carries through into both his photographs and his films.":
+      "Il commence le skateboard en 2020. Cela lui donne une autre façon de regarder : une attention à la ville, au mouvement et aux moments entre deux, que l’on retrouve dans ses photographies comme dans ses films.",
+    "Education": "Formation",
+    "Photography, Narafi, Brussels (current)": "Photographie, Narafi, Bruxelles (en cours)",
+    "Photography, Kunstinstituut Gent": "Photographie, Kunstinstituut Gent",
+    "Audiovisual and Visual Arts, Sint-Lukas Brussels": "Audiovisuel et arts visuels, Sint-Lukas Bruxelles",
+    "Graphic Design, Don Bosco Halle": "Graphisme, Don Bosco Halle",
+    "Exhibitions": "Expositions",
+    "End-of-year exhibition, Kunstinstituut Gent (open to the public)": "Exposition de fin d’année, Kunstinstituut Gent (ouverte au public)",
+    "Graduation exhibition, Sint-Lukas Brussels (open to the public)": "Exposition de diplôme, Sint-Lukas Bruxelles (ouverte au public)",
+    "Screenagers, skate film, filmed and edited by Pich Sann, MAS3_Skate, 2026": "Screenagers, film de skate, tourné et monté par Pich Sann, MAS3_Skate, 2026",
+    "<a href=\"#video\">Screenagers</a>, skate film, filmed and edited": "<a href=\"#video\">Screenagers</a>, film de skate, tournage et montage",
+    "A skate film about a group of friends and the time they spend together: skating through the city, waiting on stairs, and filming each other in between. I filmed and edited the whole video and skated as part of the crew. It began as a project between friends and went on to become a viral video. Thanks to local legend filmer Moica for assisting on the second angle.":
+      "Un film de skate sur une bande d’amis et le temps qu’ils passent ensemble : rouler à travers la ville, attendre sur les marches et se filmer les uns les autres entre deux. J’ai filmé et monté toute la vidéo, et j’ai aussi roulé avec la crew. C’était au départ un projet entre amis, devenu ensuite une vidéo virale. Merci à Moica, filmeur légendaire du coin, pour son aide sur le deuxième angle.",
+    "Film": "Film", "Photographic Series": "Séries photographiques",
+    "<a href=\"#video\">What Time Leaves Behind</a>, end-of-year project, Kunstinstituut Gent": "<a href=\"#video\">What Time Leaves Behind</a>, projet de fin d’année, Kunstinstituut Gent",
+    "<a href=\"#canvas\">Canvas</a>, 5 photographs": "<a href=\"#canvas\">Canvas</a>, 5 photographies",
+    "<a href=\"#amelie\">Amelie</a>, 4 photographs": "<a href=\"#amelie\">Amelie</a>, 4 photographies",
+    "<a href=\"#boy\">Boy</a>, 7 photographs": "<a href=\"#boy\">Boy</a>, 7 photographies",
+    "<a href=\"#canvas-analysis\">Canvas Analysis</a>, 6 works": "<a href=\"#canvas-analysis\">Canvas Analysis</a>, 6 œuvres",
+    "<a href=\"#girl\">Girl</a>, 2 stills from What Time Leaves Behind": "<a href=\"#girl\">Girl</a>, 2 images extraites de What Time Leaves Behind",
+    "Email": "E-mail"
+  };
   function L(p) {
     if (typeof p === "string" || typeof p === "number") return p;
     if (lang === "km") return KM[p[0]] || p[0];
+    if (lang === "fr") return FR[p[0]] || p[0];
     return p[lang === "ja" ? 1 : 0];
   }
   var ARTWORKS = [
