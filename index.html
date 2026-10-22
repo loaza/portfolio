@@ -172,6 +172,33 @@
   .videos .media { margin-bottom: 140px; }
   .video-desc { max-width: 640px; margin: 28px auto 0; font-size: 13px; line-height: 1.8; color: var(--caption); }
 
+  /* Shop */
+  .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 72px 56px; max-width: 960px; margin: 0 auto; }
+  .print { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+  .print-img { display: block; aspect-ratio: 4 / 5; max-width: 100%; background: var(--frame); }
+  .print-img img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .print-title { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--link); }
+  .print select {
+    width: 100%; padding: 10px 12px; font: inherit; font-size: 13px; color: var(--link);
+    background: var(--wall); border: 1px solid #3a3a38; border-radius: 0; cursor: pointer;
+  }
+  .print select:focus-visible { outline: 1px solid var(--link); outline-offset: 2px; }
+  .print select:disabled { cursor: default; opacity: 1; color: var(--link); appearance: none; }
+  .buy {
+    display: block; text-align: center; padding: 11px 12px; font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
+    border: 1px solid var(--link); color: var(--current); transition: background .25s ease, color .25s ease;
+  }
+  a.buy:hover { background: var(--current); color: var(--wall); }
+  .buy.soon { border-color: #3a3a38; color: var(--caption); cursor: default; }
+  .shop-notice {
+    max-width: 600px; margin: -24px auto 48px; padding: 14px 18px; text-align: center; font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--current); border: 1px solid #3a3a38;
+  }
+  .shop .shop-notice + .series-intro { margin-top: 0; }
+  .shop-note { max-width: 600px; margin: 112px auto 0; text-align: center; font-size: 13px; color: var(--caption); }
+  .shop-note a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
   /* Home reel: the recent films crossfade into each other, each still drifting slowly closer. */
   .reel { position: relative; width: 100%; max-width: 100%; aspect-ratio: 16 / 9; background: var(--frame); overflow: hidden; }
   .reel .frame16 { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity 1.4s ease; }
@@ -254,6 +281,7 @@
     { id: "video", en: "Video", fr: "Vidéo", ja: "映像", km: "វីដេអូ" },
     { id: "biography", en: "Biography", fr: "Biographie", ja: "略歴", km: "ជីវប្រវត្តិ" },
     { id: "works", en: "Works", fr: "Liste des œuvres", ja: "作品リスト", km: "បញ្ជីស្នាដៃ" },
+    { id: "shop", en: "Shop", fr: "Boutique", ja: "ショップ", km: "ហាង" },
     { id: "contact", en: "Contact", fr: "Contact", ja: "お問い合わせ", km: "ទំនាក់ទំនង" }
   ];
   var lang = "en";
@@ -300,6 +328,7 @@
   };
 
   /* ---------- content ---------- */
+  var SHOP_INTRO = "Each print is made to order as an inkjet print on Ilford Prestige Smooth Pearl, a 310 g photo paper with a fine pearl surface that keeps deep blacks and soft detail. Please allow around 14 days for delivery.";
   var GIRL_INTRO = "<em>Girl</em> is a small series of photographs taken while filming <a href=\"#video\"><em>What Time Leaves Behind</em></a>. Between takes, the nature around me caught my attention, and I tried to capture the same atmosphere as the film, but this time in still images.";
   var ANALYSIS_INTRO = "<em>Canvas Analysis</em> is a series of scans of the canvases used in <em>Canvas</em>. Seen flat and without a body, the fabric shows the transferred photographs on their own: partly faded, sometimes only in fragments.";
   var BOY_INTRO = "<em>Boy</em> begins with my parents’ story. When they came to Belgium from Cambodia for the first time, they carried a briefcase full of books, everything they had to learn about a new country: its language, its culture, its way of life. In this series, a boy carries that same briefcase through old stone walls and overgrown ruins, searching for something new. He is not looking back; he is trying to leave his past behind him and walk towards a future he does not know yet. <em>Boy</em> is about that moment of crossing over, between the weight of what you bring with you and what you are ready to let go.";
@@ -344,6 +373,11 @@
     "My final art exam film for graduating from Sint-Lukas Brussels. <em>Trial and Error</em> follows the process of learning a new skateboarding trick, attempt after attempt.":
       "ខ្សែភាពយន្តប្រឡងសិល្បៈចុងក្រោយរបស់ខ្ញុំ សម្រាប់ការបញ្ចប់ការសិក្សានៅ Sint-Lukas Brussels។ <em>Trial and Error</em> បង្ហាញពីដំណើរការនៃការរៀនបច្ចេកទេសជិះស្គេតថ្មីមួយ ម្ដងហើយម្ដងទៀត។",
     "<a href=\"#video\">Trial and Error</a>, final art exam film, Sint-Lukas Brussels": "<a href=\"#video\">Trial and Error</a> ខ្សែភាពយន្តប្រឡងសិល្បៈចុងក្រោយ, Sint-Lukas Brussels",
+    "Shop": "ហាង", "Buy print": "ទិញរូបថតបោះពុម្ព", "Available soon": "មកដល់ឆាប់ៗ", "Size": "ទំហំ",
+    "Orders open on 3 January 2027": "ការបញ្ជាទិញបើកចាប់ពីថ្ងៃទី 3 ខែមករា ឆ្នាំ 2027",
+    "Until then, you can browse the prints below.": "រហូតដល់ពេលនោះ អ្នកអាចមើលរូបថតបោះពុម្ពខាងក្រោម។",
+    "Limited editions of <em>Canvas</em>, <em>Amelie</em> and <em>Boy</em> are available on request. <a href=\"#contact\">Get in touch</a>.":
+      "ការបោះពុម្ពចំនួនកំណត់នៃ <em>Canvas</em>, <em>Amelie</em> និង <em>Boy</em> អាចរកបានតាមការស្នើសុំ។ <a href=\"#contact\">ទាក់ទងមកខ្ញុំ</a>។",
     "Film": "ខ្សែភាពយន្ត", "Photographic Series": "ស៊េរីរូបថត",
     "<a href=\"#video\">What Time Leaves Behind</a>, end-of-year project, Kunstinstituut Gent": "<a href=\"#video\">What Time Leaves Behind</a> គម្រោងបញ្ចប់ឆ្នាំសិក្សា Kunstinstituut Gent",
     "<a href=\"#canvas\">Canvas</a>, 5 photographs": "<a href=\"#canvas\">ផ្ទាំងក្រណាត់</a> រូបថត 5",
@@ -353,6 +387,7 @@
     "<a href=\"#girl\">Girl</a>, 2 photographs, taken while filming What Time Leaves Behind": "<a href=\"#girl\">ក្មេងស្រី</a> រូបថត 2 ថតក្នុងពេលថត What Time Leaves Behind",
     "Email": "អ៊ីមែល"
   };
+  KM[SHOP_INTRO] = "រូបថតបោះពុម្ពនីមួយៗត្រូវបានធ្វើតាមការបញ្ជាទិញ ដោយបោះពុម្ពទឹកខ្មៅលើក្រដាស Ilford Prestige Smooth Pearl ដែលជាក្រដាសរូបថត 310 ក្រាម មានផ្ទៃពណ៌គុជល្អិត រក្សាពណ៌ខ្មៅជ្រៅ និងព័ត៌មានលម្អិតទន់ភ្លន់។ សូមរង់ចាំប្រហែល 14 ថ្ងៃសម្រាប់ការដឹកជញ្ជូន។";
   KM[GIRL_INTRO] = "<em>Girl</em> គឺជាស៊េរីរូបថតតូចមួយ ដែលថតក្នុងពេលថតខ្សែភាពយន្ត <a href=\"#video\"><em>What Time Leaves Behind</em></a>។ នៅចន្លោះការថត ធម្មជាតិនៅជុំវិញខ្ញុំបានទាក់ទាញចំណាប់អារម្មណ៍ ហើយខ្ញុំបានព្យាយាមចាប់យកបរិយាកាសដូចគ្នានឹងខ្សែភាពយន្ត ប៉ុន្តែលើកនេះជារូបថតនៅស្ងៀម។";
   KM[ANALYSIS_INTRO] = "<em>Canvas Analysis</em> គឺជាស៊េរីនៃការស្កេនផ្ទាំងក្រណាត់ដែលបានប្រើក្នុង <em>Canvas</em>។ នៅពេលមើលដោយដាក់សំប៉ែត និងគ្មានរាងកាយ ក្រណាត់បង្ហាញតែរូបថតដែលបានផ្ទេរ៖ ខ្លះរសាត់ ហើយពេលខ្លះនៅសល់តែជាបំណែកៗ។";
   KM[BOY_INTRO] = "<em>Boy</em> ចាប់ផ្ដើមពីរឿងរ៉ាវរបស់ឪពុកម្ដាយខ្ញុំ។ នៅពេលពួកគាត់មកដល់ប្រទេសបែលហ្ស៊ិកពីប្រទេសកម្ពុជាជាលើកដំបូង ពួកគាត់បានយកកាបូបយួរដៃមួយដែលពេញទៅដោយសៀវភៅ ដែលជាអ្វីៗទាំងអស់ដែលពួកគាត់មាន ដើម្បីរៀនអំពីប្រទេសថ្មីមួយ៖ ភាសា វប្បធម៌ និងរបៀបរស់នៅ។ នៅក្នុងស៊េរីនេះ ក្មេងប្រុសម្នាក់យួរកាបូបដដែលនោះ ដើរកាត់ជញ្ជាំងថ្មចាស់ៗ និងកន្លែងបាក់បែកដែលដុះពេញដោយរុក្ខជាតិ ដើម្បីស្វែងរកអ្វីដែលថ្មី។ គាត់មិនងាកមើលក្រោយទេ គាត់កំពុងព្យាយាមទុកអតីតកាលរបស់គាត់នៅពីក្រោយ ហើយដើរឆ្ពោះទៅរកអនាគតដែលគាត់មិនទាន់ស្គាល់។ <em>Boy</em> និយាយអំពីពេលវេលានៃការឆ្លងកាត់នោះ រវាងទម្ងន់នៃអ្វីដែលអ្នកយកមកជាមួយ និងអ្វីដែលអ្នកត្រៀមខ្លួនរួចជាស្រេចដើម្បីបោះបង់ចោល។";
@@ -386,6 +421,11 @@
     "My final art exam film for graduating from Sint-Lukas Brussels. <em>Trial and Error</em> follows the process of learning a new skateboarding trick, attempt after attempt.":
       "Mon film d’examen final pour mon diplôme à Sint-Lukas Bruxelles. <em>Trial and Error</em> suit le processus d’apprentissage d’un nouveau trick de skateboard, essai après essai.",
     "<a href=\"#video\">Trial and Error</a>, final art exam film, Sint-Lukas Brussels": "<a href=\"#video\">Trial and Error</a>, film d’examen final, Sint-Lukas Bruxelles",
+    "Shop": "Boutique", "Buy print": "Acheter le tirage", "Available soon": "Bientôt disponible", "Size": "Format",
+    "Orders open on 3 January 2027": "Commandes ouvertes à partir du 3 janvier 2027",
+    "Until then, you can browse the prints below.": "D’ici là, vous pouvez découvrir les tirages ci-dessous.",
+    "Limited editions of <em>Canvas</em>, <em>Amelie</em> and <em>Boy</em> are available on request. <a href=\"#contact\">Get in touch</a>.":
+      "Des éditions limitées de <em>Canvas</em>, <em>Amelie</em> et <em>Boy</em> sont disponibles sur demande. <a href=\"#contact\">Contactez-moi</a>.",
     "Film": "Film", "Photographic Series": "Séries photographiques",
     "<a href=\"#video\">What Time Leaves Behind</a>, end-of-year project, Kunstinstituut Gent": "<a href=\"#video\">What Time Leaves Behind</a>, projet de fin d’année, Kunstinstituut Gent",
     "<a href=\"#canvas\">Canvas</a>, 5 photographs": "<a href=\"#canvas\">Canvas</a>, 5 photographies",
@@ -395,6 +435,7 @@
     "<a href=\"#girl\">Girl</a>, 2 photographs, taken while filming What Time Leaves Behind": "<a href=\"#girl\">Girl</a>, 2 photographies, prises pendant le tournage de What Time Leaves Behind",
     "Email": "E-mail"
   };
+  FR[SHOP_INTRO] = "Chaque tirage est réalisé à la commande, en impression jet d’encre sur Ilford Prestige Smooth Pearl, un papier photo de 310 g à la surface finement perlée, qui garde des noirs profonds et des détails doux. Comptez environ 14 jours pour la livraison.";
   FR[GIRL_INTRO] = "<em>Girl</em> est une petite série de photographies prises pendant le tournage de <a href=\"#video\"><em>What Time Leaves Behind</em></a>. Entre deux prises, la nature autour de moi a attiré mon regard, et j’ai essayé de retrouver la même atmosphère que dans le film, mais cette fois en images fixes.";
   FR[ANALYSIS_INTRO] = "<em>Canvas Analysis</em> est une série de scans des toiles utilisées dans <em>Canvas</em>. Vues à plat et sans corps, les toiles montrent les photographies transférées pour elles-mêmes : en partie effacées, parfois seulement en fragments.";
   FR[BOY_INTRO] = "<em>Boy</em> commence avec l’histoire de mes parents. Quand ils sont arrivés pour la première fois du Cambodge en Belgique, ils portaient une mallette pleine de livres, tout ce qu’ils avaient pour apprendre un nouveau pays : sa langue, sa culture, sa manière de vivre. Dans cette série, un garçon porte cette même mallette à travers de vieux murs de pierre et des ruines envahies par la végétation, à la recherche de quelque chose de nouveau. Il ne regarde pas en arrière ; il essaie de laisser son passé derrière lui et de marcher vers un avenir qu’il ne connaît pas encore. <em>Boy</em> parle de ce moment de passage, entre le poids de ce que l’on emporte et ce que l’on est prêt à laisser partir.";
@@ -451,6 +492,45 @@
     VIDEOS[1],
     { photo: "amelie-3.jpg", href: "#amelie", caption: ["Amelie III, 2026", "Amelie III、2026年"] }
   ];
+
+  /* ---------- shop ---------- */
+  /* Each print has one Stripe Payment Link per size; an empty link shows "Available soon" instead of a buy button. */
+  var SHOP_SIZES = {
+    a4: { label: "A4 · 21 × 29.7 cm", price: 35 },
+    a3: { label: "A3 · 29.7 × 42 cm", price: 55 }
+  };
+  /* sizes lists what each print is offered in; links holds one Stripe Payment Link per size. */
+  var SHOP = [
+    { id: "p1", series: "canvas", src: "canvas.jpg", title: ["Canvas I", "キャンバス I"], year: 2025,
+      sizes: ["a4"], links: { a4: "" } },
+    { id: "p2", series: "boy", src: "boy.jpg", title: ["Boy I", "少年 I"], year: 2026,
+      sizes: ["a4", "a3"], links: { a4: "", a3: "" } },
+    { id: "p3", series: "amelie", src: "amelie-3.jpg", title: ["Amelie III", "Amelie III"], year: 2026,
+      sizes: ["a4"], links: { a4: "" } }
+  ];
+
+  /* Ordering opens on 3 January 2027 (Belgian time); before that the buttons only announce the date. */
+  var SHOP_OPENS = new Date("2027-01-03T00:00:00+01:00");
+  function shopOpen() { return Date.now() >= SHOP_OPENS.getTime(); }
+  var SHOP_OPENS_TEXT = ["Orders open on 3 January 2027", "ご注文は2027年1月3日から受け付けます"];
+
+  function buyControl(p, sizeKey) {
+    var link = p.links[sizeKey];
+    if (!shopOpen()) return '<span class="buy soon">' + L(SHOP_OPENS_TEXT) + '</span>';
+    return link
+      ? '<a class="buy" href="' + link + '" target="_blank" rel="noopener">' + L(["Buy print", "購入する"]) + '</a>'
+      : '<span class="buy soon">' + L(["Available soon", "近日販売"]) + '</span>';
+  }
+  function shopItem(p) {
+    return '<div class="print" data-id="' + p.id + '">' +
+      '<a class="print-img" href="#' + p.series + '">' + img(p.src, L(p.title)) + '</a>' +
+      '<div class="print-title">' + L(p.title) + ', ' + (lang === "ja" ? p.year + "年" : p.year) + '</div>' +
+      '<label class="visually-hidden" for="size-' + p.id + '">' + L(["Size", "サイズ"]) + '</label>' +
+      '<select class="size" id="size-' + p.id + '"' + (p.sizes.length < 2 ? ' disabled' : '') + '>' + p.sizes.map(function (k) {
+        return '<option value="' + k + '">' + SHOP_SIZES[k].label + ' · €' + SHOP_SIZES[k].price + '</option>';
+      }).join("") + '</select>' +
+      '<div class="buy-wrap">' + buyControl(p, p.sizes[0]) + '</div></div>';
+  }
 
   /* ---------- helpers ---------- */
   function img(src, alt, cls) {
@@ -577,6 +657,15 @@
           ["2026", ["<a href=\"#girl\">Girl</a>, 2 photographs, taken while filming What Time Leaves Behind", "<a href=\"#girl\">少女</a>、写真2点、『時が残すもの』撮影中に撮影"]]]) +
         '</section>';
     },
+    shop: function () {
+      return '<section class="page shop"><h1 class="page-title">' + L(["Shop", "ショップ"]) + '</h1>' +
+        (shopOpen() ? '' : '<p class="shop-notice">' + L(SHOP_OPENS_TEXT) + '. ' + L(["Until then, you can browse the prints below.", "それまでは、下のプリントをご覧いただけます。"]) + '</p>') +
+        '<p class="series-intro">' + L([SHOP_INTRO, "すべてのプリントは受注制作で、Ilford Prestige Smooth Pearl（310g、細かなパール面で深い黒と繊細なディテールを保つ写真用紙）にインクジェットで印刷します。お届けまで約14日ほどお待ちください。"]) + '</p>' +
+        '<div class="shop-grid">' + SHOP.map(shopItem).join("") + '</div>' +
+        '<p class="shop-note">' + L(["Limited editions of <em>Canvas</em>, <em>Amelie</em> and <em>Boy</em> are available on request. <a href=\"#contact\">Get in touch</a>.",
+          "『キャンバス』『Amelie』『少年』の限定エディションはご相談に応じます。<a href=\"#contact\">お問い合わせ</a>ください。"]) + '</p>' +
+        '</section>';
+    },
     contact: function () {
       return '<section class="narrow text contact"><h1 class="page-title">' + L(["Contact", "お問い合わせ"]) + '</h1>' +
         '<p><span class="label">' + L(["Email", "メール"]) + '</span><span style="user-select:all">pichsannz@gmail.com</span></p>' +
@@ -628,6 +717,14 @@
     setViewer(true);
   });
   viewer.addEventListener("click", function () { setViewer(false); });
+
+  /* Shop: picking a size swaps in that size's payment link. */
+  document.getElementById("main").addEventListener("change", function (e) {
+    if (!e.target.matches(".shop select.size")) return;
+    var box = e.target.closest(".print");
+    var p = SHOP.filter(function (x) { return x.id === box.dataset.id; })[0];
+    box.querySelector(".buy-wrap").innerHTML = buyControl(p, e.target.value);
+  });
 
   /* Self-hosted (e.g. GitHub Pages) the page is the top window and YouTube can play in place;
      inside the claude.ai frame embedding is blocked, so the link opens YouTube instead. */
