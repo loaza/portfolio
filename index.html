@@ -208,6 +208,10 @@
   .shop-shipping { max-width: 600px; margin: -24px auto 64px; text-align: center; font-size: 13px; line-height: 1.9; letter-spacing: .04em; color: var(--current); }
   .shop-note { max-width: 600px; margin: 112px auto 0; text-align: center; font-size: 13px; color: var(--caption); }
   .shop-note a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+  .shop-info { max-width: 640px; margin: 120px auto 0; padding-top: 48px; border-top: 1px solid #2a2a28; font-size: 12px; line-height: 1.8; color: var(--caption); }
+  .shop-info h2 { margin: 28px 0 6px; }
+  .shop-info .shop-info-title { margin-top: 0; text-align: center; }
+  .shop-info p { margin: 0; }
   .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
   /* Home reel: the recent films crossfade into each other, each still drifting slowly closer. */
@@ -339,6 +343,11 @@
   };
 
   /* ---------- content ---------- */
+  var SHOP_SELLER = "Pich Sann, photographer, Belgium. Questions about an order: <span style=\"user-select:all\">pichsannz@gmail.com</span>";
+  var SHOP_SELLER_JA = "ピッチ・サン（写真家、ベルギー）。ご注文に関するお問い合わせ：<span style=\"user-select:all\">pichsannz@gmail.com</span>";
+  var SHOP_PAYMENT = "Payments are handled securely by Stripe; your card details never reach me. Prices are in euros, and shipping is added at checkout.";
+  var SHOP_RETURNS = "You can cancel your order without giving a reason within 14 days of receiving it. Email me, then send the print back undamaged within 14 days (return postage is at your own cost). I refund the full amount, including the original shipping, within 14 days of receiving the print back. A print that arrives damaged will be replaced or refunded free of charge.";
+  var SHOP_PRIVACY = "Your name, address and email are only used to ship your order and to contact you about it. They are not shared with anyone except the postal service. Payments are processed by Stripe. To have your data deleted, send me an email.";
   var SHOP_SHIPPING = "Shipping, chosen at checkout:<br>Belgium – tracked shipping · €7 · <span class=\"nowrap\">3–5 business days</span><br>Rest of Europe – tracked shipping · €15 · <span class=\"nowrap\">12–20 business days</span>";
   var SHOP_INTRO = "Each print is made to order as an inkjet print on Ilford Prestige Smooth Pearl, a 310 g photo paper with a fine pearl surface that keeps deep blacks and soft detail.";
   var GIRL_INTRO = "<em>Girl</em> is a small series of photographs taken while filming <a href=\"#video\"><em>What Time Leaves Behind</em></a>. Between takes, the nature around me caught my attention, and I tried to capture the same atmosphere as the film, but this time in still images.";
@@ -400,6 +409,12 @@
     "Email": "អ៊ីមែល"
   };
   KM[SHOP_SHIPPING] = "ការដឹកជញ្ជូន ជ្រើសរើសនៅពេលទូទាត់ប្រាក់៖<br>បែលហ្ស៊ិក – ការដឹកជញ្ជូនអាចតាមដានបាន · €7 · <span class=\"nowrap\">3–5 ថ្ងៃធ្វើការ</span><br>ប្រទេសផ្សេងទៀតនៅអឺរ៉ុប – ការដឹកជញ្ជូនអាចតាមដានបាន · €15 · <span class=\"nowrap\">12–20 ថ្ងៃធ្វើការ</span>";
+  KM["Shop information"] = "ព័ត៌មានហាង"; KM["Seller"] = "អ្នកលក់"; KM["Payment"] = "ការទូទាត់"; KM["Returns"] = "ការប្រគល់ត្រឡប់"; KM["Privacy"] = "ឯកជនភាព";
+  KM["Company number (KBO): "] = "លេខក្រុមហ៊ុន (KBO)៖ ";
+  KM[SHOP_SELLER] = "Pich Sann អ្នកថតរូប ប្រទេសបែលហ្ស៊ិក។ សំណួរអំពីការបញ្ជាទិញ៖ <span style=\"user-select:all\">pichsannz@gmail.com</span>";
+  KM[SHOP_PAYMENT] = "ការទូទាត់ប្រាក់ត្រូវបានដំណើរការដោយសុវត្ថិភាពតាមរយៈ Stripe ព័ត៌មានកាតរបស់អ្នកមិនដែលមកដល់ខ្ញុំទេ។ តម្លៃគិតជាអឺរ៉ូ ហើយថ្លៃដឹកជញ្ជូនត្រូវបានបន្ថែមនៅពេលទូទាត់។";
+  KM[SHOP_RETURNS] = "អ្នកអាចលុបចោលការបញ្ជាទិញរបស់អ្នកដោយមិនចាំបាច់ផ្ដល់ហេតុផល ក្នុងរយៈពេល 14 ថ្ងៃបន្ទាប់ពីទទួលបាន។ សូមផ្ញើអ៊ីមែលមកខ្ញុំ បន្ទាប់មកផ្ញើរូបថតបោះពុម្ពត្រឡប់មកវិញក្នុងស្ថានភាពល្អក្នុងរយៈពេល 14 ថ្ងៃ (ថ្លៃផ្ញើត្រឡប់ជាបន្ទុករបស់អ្នក)។ ខ្ញុំនឹងសងប្រាក់វិញទាំងស្រុង រួមទាំងថ្លៃដឹកជញ្ជូនដើម ក្នុងរយៈពេល 14 ថ្ងៃបន្ទាប់ពីទទួលបានរូបថតវិញ។ រូបថតដែលមកដល់ដោយខូចខាត នឹងត្រូវប្ដូរ ឬសងប្រាក់វិញដោយឥតគិតថ្លៃ។";
+  KM[SHOP_PRIVACY] = "ឈ្មោះ អាសយដ្ឋាន និងអ៊ីមែលរបស់អ្នក ត្រូវបានប្រើតែសម្រាប់ផ្ញើការបញ្ជាទិញ និងទាក់ទងអ្នកអំពីវាប៉ុណ្ណោះ។ ពួកវាមិនត្រូវបានចែករំលែកជាមួយនរណាម្នាក់ឡើយ លើកលែងតែសេវាប្រៃសណីយ៍។ ការទូទាត់ត្រូវបានដំណើរការដោយ Stripe។ ដើម្បីលុបទិន្នន័យរបស់អ្នក សូមផ្ញើអ៊ីមែលមកខ្ញុំ។";
   KM[SHOP_INTRO] = "រូបថតបោះពុម្ពនីមួយៗត្រូវបានធ្វើតាមការបញ្ជាទិញ ដោយបោះពុម្ពទឹកខ្មៅលើក្រដាស Ilford Prestige Smooth Pearl ដែលជាក្រដាសរូបថត 310 ក្រាម មានផ្ទៃពណ៌គុជល្អិត រក្សាពណ៌ខ្មៅជ្រៅ និងព័ត៌មានលម្អិតទន់ភ្លន់។";
   KM[GIRL_INTRO] = "<em>Girl</em> គឺជាស៊េរីរូបថតតូចមួយ ដែលថតក្នុងពេលថតខ្សែភាពយន្ត <a href=\"#video\"><em>What Time Leaves Behind</em></a>។ នៅចន្លោះការថត ធម្មជាតិនៅជុំវិញខ្ញុំបានទាក់ទាញចំណាប់អារម្មណ៍ ហើយខ្ញុំបានព្យាយាមចាប់យកបរិយាកាសដូចគ្នានឹងខ្សែភាពយន្ត ប៉ុន្តែលើកនេះជារូបថតនៅស្ងៀម។";
   KM[ANALYSIS_INTRO] = "<em>Canvas Analysis</em> គឺជាស៊េរីនៃការស្កេនផ្ទាំងក្រណាត់ដែលបានប្រើក្នុង <em>Canvas</em>។ នៅពេលមើលដោយដាក់សំប៉ែត និងគ្មានរាងកាយ ក្រណាត់បង្ហាញតែរូបថតដែលបានផ្ទេរ៖ ខ្លះរសាត់ ហើយពេលខ្លះនៅសល់តែជាបំណែកៗ។";
@@ -449,6 +464,12 @@
     "Email": "E-mail"
   };
   FR[SHOP_SHIPPING] = "Livraison, à choisir lors du paiement :<br>Belgique – envoi suivi · 7 € · <span class=\"nowrap\">3 à 5 jours ouvrables</span><br>Reste de l’Europe – envoi suivi · 15 € · <span class=\"nowrap\">12 à 20 jours ouvrables</span>";
+  FR["Shop information"] = "Informations boutique"; FR["Seller"] = "Vendeur"; FR["Payment"] = "Paiement"; FR["Returns"] = "Retours"; FR["Privacy"] = "Vie privée";
+  FR["Company number (KBO): "] = "Numéro d’entreprise (BCE) : ";
+  FR[SHOP_SELLER] = "Pich Sann, photographe, Belgique. Questions sur une commande : <span style=\"user-select:all\">pichsannz@gmail.com</span>";
+  FR[SHOP_PAYMENT] = "Les paiements sont traités de manière sécurisée par Stripe ; vos données de carte ne me parviennent jamais. Les prix sont en euros et les frais d’envoi sont ajoutés au moment du paiement.";
+  FR[SHOP_RETURNS] = "Vous pouvez annuler votre commande sans donner de raison dans les 14 jours suivant sa réception. Envoyez-moi un e-mail, puis renvoyez le tirage en bon état dans les 14 jours (les frais de retour sont à votre charge). Je rembourse le montant total, frais d’envoi initiaux compris, dans les 14 jours suivant la réception du tirage. Un tirage arrivé abîmé est remplacé ou remboursé gratuitement.";
+  FR[SHOP_PRIVACY] = "Vos nom, adresse et e-mail servent uniquement à envoyer votre commande et à vous contacter à son sujet. Ils ne sont partagés avec personne, sauf le service postal. Les paiements sont traités par Stripe. Pour faire supprimer vos données, envoyez-moi un e-mail.";
   FR[SHOP_INTRO] = "Chaque tirage est réalisé à la commande, en impression jet d’encre sur Ilford Prestige Smooth Pearl, un papier photo de 310 g à la surface finement perlée, qui garde des noirs profonds et des détails doux.";
   FR[GIRL_INTRO] = "<em>Girl</em> est une petite série de photographies prises pendant le tournage de <a href=\"#video\"><em>What Time Leaves Behind</em></a>. Entre deux prises, la nature autour de moi a attiré mon regard, et j’ai essayé de retrouver la même atmosphère que dans le film, mais cette fois en images fixes.";
   FR[ANALYSIS_INTRO] = "<em>Canvas Analysis</em> est une série de scans des toiles utilisées dans <em>Canvas</em>. Vues à plat et sans corps, les toiles montrent les photographies transférées pour elles-mêmes : en partie effacées, parfois seulement en fragments.";
@@ -546,6 +567,20 @@
         return '<option value="' + k + '">' + SHOP_SIZES[k].label + ' · €' + SHOP_SIZES[k].price + '</option>';
       }).join("") + '</select>' +
       '<div class="buy-wrap">' + buyControl(p, p.sizes[0]) + '</div></div>';
+  }
+
+  /* Legal shop information. The company number line only appears once SHOP_KBO is filled in. */
+  var SHOP_KBO = "";
+  function shopInfo() {
+    var block = function (title, text) { return '<h2>' + L(title) + '</h2><p>' + L(text) + '</p>'; };
+    return '<div class="shop-info text">' +
+      '<h2 class="shop-info-title">' + L(["Shop information", "ショップ情報"]) + '</h2>' +
+      block(["Seller", "販売者"], [SHOP_SELLER, SHOP_SELLER_JA]) +
+      (SHOP_KBO ? '<p>' + L(["Company number (KBO): ", "企業番号（KBO）："]) + SHOP_KBO + '</p>' : '') +
+      block(["Payment", "お支払い"], [SHOP_PAYMENT, "お支払いはStripeを通じて安全に処理されます。カード情報が私に届くことはありません。表示価格はユーロ建てで、送料はお支払い時に追加されます。"]) +
+      block(["Returns", "返品"], [SHOP_RETURNS, "商品の受け取りから14日以内であれば、理由を問わず注文を取り消すことができます。メールでご連絡のうえ、14日以内にプリントを損傷のない状態で返送してください（返送料はお客様のご負担となります）。プリントの返却を確認後、14日以内に送料を含めて返金します。配送中に破損したプリントは、無料で交換または返金します。"]) +
+      block(["Privacy", "プライバシー"], [SHOP_PRIVACY, "ご注文時にお預かりするお名前、住所、メールアドレスは、ご注文の発送とご連絡のためだけに使用し、第三者と共有することはありません（配送業者を除く）。お支払いはStripeが処理します。データの削除をご希望の場合は、メールでご連絡ください。"]) +
+      '</div>';
   }
 
   /* ---------- helpers ---------- */
@@ -681,6 +716,7 @@
         '<div class="shop-grid">' + SHOP.map(shopItem).join("") + '</div>' +
         '<p class="shop-note">' + L(["Limited editions of <em>Canvas</em>, <em>Amelie</em> and <em>Boy</em> are available on request. <a href=\"#contact\">Get in touch</a>.",
           "『キャンバス』『Amelie』『少年』の限定エディションはご相談に応じます。<a href=\"#contact\">お問い合わせ</a>ください。"]) + '</p>' +
+        shopInfo() +
         '</section>';
     },
     contact: function () {
