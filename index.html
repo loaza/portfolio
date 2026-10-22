@@ -509,9 +509,9 @@
       sizes: ["a4"], links: { a4: "https://buy.stripe.com/cNi7sM4FM4IgagZdt91gs03" } }
   ];
 
-  /* Ordering opens on 3 January 2027 (Belgian time); before that the buttons only announce the date.
+  /* Ordering opened on 22 October 2026 (Belgian time); before that the buttons only announce the date.
      Adding ?shop=open to the address opens the shop early, for testing the checkout. */
-  var SHOP_OPENS = new Date("2027-01-03T00:00:00+01:00");
+  var SHOP_OPENS = new Date("2026-10-22T00:00:00+02:00");
   var SHOP_PREVIEW = /[?&]shop=open(&|$)/.test(location.search);
   function shopOpen() { return SHOP_PREVIEW || Date.now() >= SHOP_OPENS.getTime(); }
   var SHOP_OPENS_TEXT = ["Orders open on 3 January 2027", "ご注文は2027年1月3日から受け付けます"];
