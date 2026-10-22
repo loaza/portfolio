@@ -300,6 +300,7 @@
   };
 
   /* ---------- content ---------- */
+  var GIRL_INTRO = "<em>Girl</em> is a small series of photographs taken while filming <a href=\"#video\"><em>What Time Leaves Behind</em></a>. Between takes, the nature around me caught my attention, and I tried to capture the same atmosphere as the film, but this time in still images.";
   var ANALYSIS_INTRO = "<em>Canvas Analysis</em> is a series of scans of the canvases used in <em>Canvas</em>. Seen flat and without a body, the fabric shows the transferred photographs on their own: partly faded, sometimes only in fragments.";
   var BOY_INTRO = "<em>Boy</em> begins with my parents’ story. When they came to Belgium from Cambodia for the first time, they carried a briefcase full of books, everything they had to learn about a new country: its language, its culture, its way of life. In this series, a boy carries that same briefcase through old stone walls and overgrown ruins, searching for something new. He is not looking back; he is trying to leave his past behind him and walk towards a future he does not know yet. <em>Boy</em> is about that moment of crossing over, between the weight of what you bring with you and what you are ready to let go.";
   var AMELIE_INTRO = "After <em>Canvas</em>, I wanted to go one layer deeper. I printed the photographs from that series onto canvas and laid them back on the body, so that every image began to hold another one inside it: a picture within a picture, a person within a person. The more layers I added, the more the work turned towards something quieter, the unease of being undressed, of having only a thin piece of fabric between yourself and whoever is looking. <em>Amelie</em> became that in-between moment: an idea I followed for a while, until it slowly faded and opened the way to <em>Boy</em>.";
@@ -320,7 +321,6 @@
     "Canvas Analysis III": "ការវិភាគផ្ទាំងក្រណាត់ III", "Canvas Analysis IV": "ការវិភាគផ្ទាំងក្រណាត់ IV", "Canvas Analysis V": "ការវិភាគផ្ទាំងក្រណាត់ V",
     "Canvas Analysis VI": "ការវិភាគផ្ទាំងក្រណាត់ VI",
     "Girl": "ក្មេងស្រី", "Girl I": "ក្មេងស្រី I", "Girl II": "ក្មេងស្រី II",
-    "Stills from the film <a href=\"#video\">What Time Leaves Behind</a>.": "រូបភាពពីខ្សែភាពយន្ត <a href=\"#video\">What Time Leaves Behind</a>។",
     "What Time Leaves Behind, a film by Pich Sann, end-of-year project, Kunstinstituut Gent, 2026": "អ្វីដែលពេលវេលាបន្សល់ទុក ខ្សែភាពយន្តដោយ Pich Sann គម្រោងបញ្ចប់ឆ្នាំសិក្សា Kunstinstituut Gent, 2026",
     "A girl moves through the things my parents carried with them when they came to Belgium. The books in this film were all they had to learn about their new country: its culture, its language, its ways of living. What Time Leaves Behind returns to these objects to ask what remains of a beginning, long after it has passed.":
       "ក្មេងស្រីម្នាក់ដើររុករកវត្ថុដែលឪពុកម្ដាយខ្ញុំបាននាំយកមកជាមួយ នៅពេលពួកគាត់មកដល់ប្រទេសបែលហ្ស៊ិក។ សៀវភៅនៅក្នុងខ្សែភាពយន្តនេះ គឺជាអ្វីៗទាំងអស់ដែលពួកគាត់មាន ដើម្បីស្វែងយល់ពីប្រទេសថ្មីរបស់ពួកគាត់៖ វប្បធម៌ ភាសា និងរបៀបរស់នៅ។ What Time Leaves Behind ត្រឡប់ទៅរកវត្ថុទាំងនេះវិញ ដើម្បីសួរថា តើអ្វីនៅសល់ពីការចាប់ផ្ដើមមួយ យូរបន្ទាប់ពីវាបានកន្លងផុតទៅ។",
@@ -346,9 +346,10 @@
     "<a href=\"#amelie\">Amelie</a>, 4 photographs": "<a href=\"#amelie\">Amelie</a> រូបថត 4",
     "<a href=\"#boy\">Boy</a>, 7 photographs": "<a href=\"#boy\">ក្មេងប្រុស</a> រូបថត 7",
     "<a href=\"#canvas-analysis\">Canvas Analysis</a>, 6 works": "<a href=\"#canvas-analysis\">ការវិភាគផ្ទាំងក្រណាត់</a> ស្នាដៃ 6",
-    "<a href=\"#girl\">Girl</a>, 2 stills from What Time Leaves Behind": "<a href=\"#girl\">ក្មេងស្រី</a> រូបភាព 2 ពី What Time Leaves Behind",
+    "<a href=\"#girl\">Girl</a>, 2 photographs, taken while filming What Time Leaves Behind": "<a href=\"#girl\">ក្មេងស្រី</a> រូបថត 2 ថតក្នុងពេលថត What Time Leaves Behind",
     "Email": "អ៊ីមែល"
   };
+  KM[GIRL_INTRO] = "<em>Girl</em> គឺជាស៊េរីរូបថតតូចមួយ ដែលថតក្នុងពេលថតខ្សែភាពយន្ត <a href=\"#video\"><em>What Time Leaves Behind</em></a>។ នៅចន្លោះការថត ធម្មជាតិនៅជុំវិញខ្ញុំបានទាក់ទាញចំណាប់អារម្មណ៍ ហើយខ្ញុំបានព្យាយាមចាប់យកបរិយាកាសដូចគ្នានឹងខ្សែភាពយន្ត ប៉ុន្តែលើកនេះជារូបថតនៅស្ងៀម។";
   KM[ANALYSIS_INTRO] = "<em>Canvas Analysis</em> គឺជាស៊េរីនៃការស្កេនផ្ទាំងក្រណាត់ដែលបានប្រើក្នុង <em>Canvas</em>។ នៅពេលមើលដោយដាក់សំប៉ែត និងគ្មានរាងកាយ ក្រណាត់បង្ហាញតែរូបថតដែលបានផ្ទេរ៖ ខ្លះរសាត់ ហើយពេលខ្លះនៅសល់តែជាបំណែកៗ។";
   KM[BOY_INTRO] = "<em>Boy</em> ចាប់ផ្ដើមពីរឿងរ៉ាវរបស់ឪពុកម្ដាយខ្ញុំ។ នៅពេលពួកគាត់មកដល់ប្រទេសបែលហ្ស៊ិកពីប្រទេសកម្ពុជាជាលើកដំបូង ពួកគាត់បានយកកាបូបយួរដៃមួយដែលពេញទៅដោយសៀវភៅ ដែលជាអ្វីៗទាំងអស់ដែលពួកគាត់មាន ដើម្បីរៀនអំពីប្រទេសថ្មីមួយ៖ ភាសា វប្បធម៌ និងរបៀបរស់នៅ។ នៅក្នុងស៊េរីនេះ ក្មេងប្រុសម្នាក់យួរកាបូបដដែលនោះ ដើរកាត់ជញ្ជាំងថ្មចាស់ៗ និងកន្លែងបាក់បែកដែលដុះពេញដោយរុក្ខជាតិ ដើម្បីស្វែងរកអ្វីដែលថ្មី។ គាត់មិនងាកមើលក្រោយទេ គាត់កំពុងព្យាយាមទុកអតីតកាលរបស់គាត់នៅពីក្រោយ ហើយដើរឆ្ពោះទៅរកអនាគតដែលគាត់មិនទាន់ស្គាល់។ <em>Boy</em> និយាយអំពីពេលវេលានៃការឆ្លងកាត់នោះ រវាងទម្ងន់នៃអ្វីដែលអ្នកយកមកជាមួយ និងអ្វីដែលអ្នកត្រៀមខ្លួនរួចជាស្រេចដើម្បីបោះបង់ចោល។";
   KM[AMELIE_INTRO] = "បន្ទាប់ពី <em>Canvas</em> ខ្ញុំចង់ចូលឱ្យកាន់តែជ្រៅមួយស្រទាប់ទៀត។ ខ្ញុំបានបោះពុម្ពរូបថតពីស៊េរីនោះទៅលើផ្ទាំងក្រណាត់ ហើយដាក់វាត្រឡប់មកលើរាងកាយវិញ ដូច្នេះរូបភាពនីមួយៗចាប់ផ្ដើមផ្ទុករូបភាពមួយទៀតនៅខាងក្នុង៖ រូបភាពក្នុងរូបភាព មនុស្សក្នុងមនុស្ស។ កាន់តែបន្ថែមស្រទាប់ ស្នាដៃកាន់តែងាកទៅរកអ្វីដែលស្ងាត់ស្ងៀមជាងមុន គឺភាពមិនស្រួលខ្លួននៃការមិនស្លៀកពាក់ ការមានត្រឹមតែក្រណាត់ស្ដើងមួយបន្ទះនៅចន្លោះខ្លួនឯង និងអ្នកដែលកំពុងមើល។ <em>Amelie</em> បានក្លាយជាពេលវេលានៅចន្លោះនោះ៖ គំនិតមួយដែលខ្ញុំបានដើរតាមមួយរយៈ រហូតដល់វារសាត់បាត់បន្តិចម្ដងៗ ហើយបើកផ្លូវទៅកាន់ <em>Boy</em>។";
@@ -358,7 +359,6 @@
     "Menu": "Menu", "Close": "Fermer", "Play video: ": "Lire la vidéo : ",
     "Artworks": "Œuvres", "Video": "Vidéo", "Biography": "Biographie", "Works": "Liste des œuvres", "Contact": "Contact",
     "Back to Artworks": "Retour aux œuvres",
-    "Stills from the film <a href=\"#video\">What Time Leaves Behind</a>.": "Images extraites du film <a href=\"#video\">What Time Leaves Behind</a>.",
     "What Time Leaves Behind, a film by Pich Sann, end-of-year project, Kunstinstituut Gent, 2026": "What Time Leaves Behind, un film de Pich Sann, projet de fin d’année, Kunstinstituut Gent, 2026",
     "A girl moves through the things my parents carried with them when they came to Belgium. The books in this film were all they had to learn about their new country: its culture, its language, its ways of living. What Time Leaves Behind returns to these objects to ask what remains of a beginning, long after it has passed.":
       "Une jeune fille parcourt les objets que mes parents ont emportés en arrivant en Belgique. Les livres de ce film étaient tout ce qu’ils avaient pour découvrir leur nouveau pays : sa culture, sa langue, sa manière de vivre. What Time Leaves Behind revient vers ces objets pour se demander ce qui reste d’un commencement, longtemps après qu’il est passé.",
@@ -384,9 +384,10 @@
     "<a href=\"#amelie\">Amelie</a>, 4 photographs": "<a href=\"#amelie\">Amelie</a>, 4 photographies",
     "<a href=\"#boy\">Boy</a>, 7 photographs": "<a href=\"#boy\">Boy</a>, 7 photographies",
     "<a href=\"#canvas-analysis\">Canvas Analysis</a>, 6 works": "<a href=\"#canvas-analysis\">Canvas Analysis</a>, 6 œuvres",
-    "<a href=\"#girl\">Girl</a>, 2 stills from What Time Leaves Behind": "<a href=\"#girl\">Girl</a>, 2 images extraites de What Time Leaves Behind",
+    "<a href=\"#girl\">Girl</a>, 2 photographs, taken while filming What Time Leaves Behind": "<a href=\"#girl\">Girl</a>, 2 photographies, prises pendant le tournage de What Time Leaves Behind",
     "Email": "E-mail"
   };
+  FR[GIRL_INTRO] = "<em>Girl</em> est une petite série de photographies prises pendant le tournage de <a href=\"#video\"><em>What Time Leaves Behind</em></a>. Entre deux prises, la nature autour de moi a attiré mon regard, et j’ai essayé de retrouver la même atmosphère que dans le film, mais cette fois en images fixes.";
   FR[ANALYSIS_INTRO] = "<em>Canvas Analysis</em> est une série de scans des toiles utilisées dans <em>Canvas</em>. Vues à plat et sans corps, les toiles montrent les photographies transférées pour elles-mêmes : en partie effacées, parfois seulement en fragments.";
   FR[BOY_INTRO] = "<em>Boy</em> commence avec l’histoire de mes parents. Quand ils sont arrivés pour la première fois du Cambodge en Belgique, ils portaient une mallette pleine de livres, tout ce qu’ils avaient pour apprendre un nouveau pays : sa langue, sa culture, sa manière de vivre. Dans cette série, un garçon porte cette même mallette à travers de vieux murs de pierre et des ruines envahies par la végétation, à la recherche de quelque chose de nouveau. Il ne regarde pas en arrière ; il essaie de laisser son passé derrière lui et de marcher vers un avenir qu’il ne connaît pas encore. <em>Boy</em> parle de ce moment de passage, entre le poids de ce que l’on emporte et ce que l’on est prêt à laisser partir.";
   FR[AMELIE_INTRO] = "Après <em>Canvas</em>, j’ai voulu aller une couche plus loin. J’ai imprimé les photographies de cette série sur de la toile et je les ai reposées sur le corps, si bien que chaque image a commencé à en contenir une autre : une image dans l’image, une personne dans la personne. Plus j’ajoutais de couches, plus le travail se tournait vers quelque chose de plus silencieux, le malaise d’être dévêtu, de n’avoir qu’un mince morceau de tissu entre soi et celui qui regarde. <em>Amelie</em> est devenue ce moment entre deux : une idée que j’ai suivie un temps, jusqu’à ce qu’elle s’efface doucement et ouvre la voie à <em>Boy</em>.";
@@ -417,7 +418,7 @@
         [["Canvas Analysis III", "キャンバス分析 III"], 2025, "canvas-analysis-3.jpg"], [["Canvas Analysis IV", "キャンバス分析 IV"], 2025, "canvas-analysis-4.jpg"],
         [["Canvas Analysis V", "キャンバス分析 V"], 2025, "canvas-analysis-5.jpg"], [["Canvas Analysis VI", "キャンバス分析 VI"], 2025, "canvas-analysis-6.jpg"]] },
     { id: "girl", title: ["Girl", "少女"], src: "girl-1.jpg",
-      intro: ["Stills from the film <a href=\"#video\">What Time Leaves Behind</a>.", "映像作品<a href=\"#video\">『時が残すもの』</a>からのスチル。"],
+      intro: [GIRL_INTRO, "『少女』は、映像作品<a href=\"#video\">『時が残すもの』</a>の撮影中に撮った小さな写真シリーズ。撮影の合間、まわりの自然に強く惹かれ、映像と同じ空気感を、今度は静止した写真の中に写し取ろうとした。"],
       works: [[["Girl I", "少女 I"], 2026, "girl-1.jpg"], [["Girl II", "少女 II"], 2026, "girl-2.jpg"]] }
   ];
   var VIDEOS = [
@@ -560,7 +561,7 @@
           ["2026", ["<a href=\"#amelie\">Amelie</a>, 4 photographs", "<a href=\"#amelie\">Amelie</a>、写真4点"]],
           ["2026", ["<a href=\"#boy\">Boy</a>, 7 photographs", "<a href=\"#boy\">少年</a>、写真7点"]],
           ["2025", ["<a href=\"#canvas-analysis\">Canvas Analysis</a>, 6 works", "<a href=\"#canvas-analysis\">キャンバス分析</a>、作品6点"]],
-          ["2026", ["<a href=\"#girl\">Girl</a>, 2 stills from What Time Leaves Behind", "<a href=\"#girl\">少女</a>、『時が残すもの』からのスチル2点"]]]) +
+          ["2026", ["<a href=\"#girl\">Girl</a>, 2 photographs, taken while filming What Time Leaves Behind", "<a href=\"#girl\">少女</a>、写真2点、『時が残すもの』撮影中に撮影"]]]) +
         '</section>';
     },
     contact: function () {
