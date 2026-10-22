@@ -502,16 +502,18 @@
   /* sizes lists what each print is offered in; links holds one Stripe Payment Link per size. */
   var SHOP = [
     { id: "p1", series: "canvas", src: "canvas.jpg", title: ["Canvas I", "キャンバス I"], year: 2025,
-      sizes: ["a4"], links: { a4: "https://buy.stripe.com/test_5kQeV69Wr9Ut5U36vE6Ri00" } },
+      sizes: ["a4"], links: { a4: "https://buy.stripe.com/14A4gAgou3Ec60J4WD1gs01" } },
     { id: "p2", series: "boy", src: "boy.jpg", title: ["Boy I", "少年 I"], year: 2026,
-      sizes: ["a4", "a3"], links: { a4: "", a3: "https://buy.stripe.com/test_eVq5kw6KfeaJ0zJ9HQ6Ri02" } },
+      sizes: ["a4", "a3"], links: { a4: "https://buy.stripe.com/cNifZi7RY1w42Ox9cT1gs04", a3: "https://buy.stripe.com/7sY14oegmcaIdtb0Gn1gs02" } },
     { id: "p3", series: "amelie", src: "amelie-3.jpg", title: ["Amelie III", "Amelie III"], year: 2026,
-      sizes: ["a4"], links: { a4: "https://buy.stripe.com/test_28EdR25Gb1nXdmv6vE6Ri03" } }
+      sizes: ["a4"], links: { a4: "https://buy.stripe.com/cNi7sM4FM4IgagZdt91gs03" } }
   ];
 
-  /* Ordering opens on 3 January 2027 (Belgian time); before that the buttons only announce the date. */
+  /* Ordering opens on 3 January 2027 (Belgian time); before that the buttons only announce the date.
+     Adding ?shop=open to the address opens the shop early, for testing the checkout. */
   var SHOP_OPENS = new Date("2027-01-03T00:00:00+01:00");
-  function shopOpen() { return Date.now() >= SHOP_OPENS.getTime(); }
+  var SHOP_PREVIEW = /[?&]shop=open(&|$)/.test(location.search);
+  function shopOpen() { return SHOP_PREVIEW || Date.now() >= SHOP_OPENS.getTime(); }
   var SHOP_OPENS_TEXT = ["Orders open on 3 January 2027", "ご注文は2027年1月3日から受け付けます"];
 
   function buyControl(p, sizeKey) {
