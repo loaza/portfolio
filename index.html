@@ -201,7 +201,12 @@
 
   /* Video */
   .videos .media { margin-bottom: 140px; }
-  .video-desc { max-width: 640px; margin: 28px auto 0; font-size: 13px; line-height: 1.8; color: var(--caption); }
+  /* On the Video page the wordmark becomes the barcode watermark used in the films. */
+  .wordmark .wm-logo { display: none; }
+  .wordmark .wm-logo { line-height: 1; }
+  .wordmark .wm-logo img { display: block; width: min(300px, 70vw); height: auto; margin: 0 auto 6px; }
+  html[data-page="video"] .wordmark .wm-text { display: none; }
+  html[data-page="video"] .wordmark .wm-logo { display: block; }  .video-desc { max-width: 640px; margin: 28px auto 0; font-size: 13px; line-height: 1.8; color: var(--caption); }
 
   /* Shop */
   .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 72px 48px; max-width: 1000px; margin: 0 auto; }
@@ -288,7 +293,7 @@
 
 
 <header>
-  <a class="wordmark" href="#home">Pich Sann</a>
+  <a class="wordmark" href="#home" aria-label="Pich Sann"><span class="wm-text">Pich Sann</span><span class="wm-logo" aria-hidden="true"><img src="pictures/video/video-barcode.png" alt=""><span>Pich Sann</span></span></a>
   <nav class="main" id="nav" aria-label="Main"></nav>
   <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="overlay">Menu</button>
   <div class="lang-row">
@@ -706,7 +711,7 @@
     home: function () { return '<section class="page">' + reelBlock(HOME_REEL) + '</section>'; },
     artworks: function () { return indexPage(ARTWORKS, ["Artworks", "作品"]); },
     video: function () {
-      return '<section class="page videos"><h1 class="page-title">' + L(["Video", "映像"]) + '</h1>' + VIDEOS.map(function (v) { return videoBlock(v, true); }).join("") + '</section>';
+      return '<section class="page videos"><h1 class="page-title visually-hidden">' + L(["Video", "映像"]) + '</h1>' + VIDEOS.map(function (v) { return videoBlock(v, true); }).join("") + '</section>';
     },
     biography: function () {
       return '<section class="narrow text"><h1 class="page-title">' + L(["Biography", "略歴"]) + '</h1>' +
@@ -871,6 +876,7 @@
     var id = current();
     var draw = function () {
       main.innerHTML = PAGES[id]();
+      document.documentElement.setAttribute("data-page", id);
       renderNav(id);
       fadeImages();
       startReel();
