@@ -91,6 +91,28 @@
     color: var(--link); transition: color .25s ease;
   }
   .lang:hover { color: var(--active); }
+  /* Language picker: one "Language" button that opens a small pop-up with the four languages. */
+  .lang-wrap { position: relative; }
+  .lang-toggle {
+    background: none; border: 0; padding: 0; cursor: pointer;
+    font-family: var(--sans); font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--link); transition: color .25s ease;
+  }
+  .lang-toggle:hover, .lang-toggle[aria-expanded="true"] { color: var(--active); }
+  .lang-toggle::after {
+    content: ""; display: inline-block; margin-left: 8px; vertical-align: middle;
+    border-style: solid; border-width: 4px 3.5px 0 3.5px; border-color: currentColor transparent transparent transparent;
+    transition: transform .25s ease;
+  }
+  .lang-toggle[aria-expanded="true"]::after { transform: rotate(180deg); }
+  .lang-menu {
+    position: absolute; right: 0; top: calc(100% + 10px); z-index: 25;
+    display: flex; flex-direction: column; align-items: flex-end; gap: 12px;
+    padding: 14px 18px; background: var(--wall); border: 1px solid #3a3a38;
+    opacity: 0; visibility: hidden; transform: translateY(-4px); pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
+  }
+  .lang-menu.open { opacity: 1; visibility: visible; transform: none; pointer-events: auto; transition-delay: 0s; }
   .menu-btn {
     display: none;
     margin: 18px auto 0;
@@ -268,11 +290,16 @@
   <a class="wordmark" href="#home">Pich Sann</a>
   <nav class="main" id="nav" aria-label="Main"></nav>
   <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="overlay">Menu</button>
-  <div class="lang-row" id="langRow">
-    <button class="lang" data-lang="en" aria-pressed="true">English</button>
-    <button class="lang" data-lang="fr" aria-pressed="false" lang="fr">Français</button>
-    <button class="lang" data-lang="ja" aria-pressed="false" lang="ja">日本語</button>
-    <button class="lang" data-lang="km" aria-pressed="false" lang="km">ខ្មែរ</button>
+  <div class="lang-row">
+    <div class="lang-wrap" id="langRow">
+      <button class="lang-toggle" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="langMenu">Language</button>
+      <div class="lang-menu" id="langMenu">
+        <button class="lang" type="button" data-lang="en" aria-pressed="true">English</button>
+        <button class="lang" type="button" data-lang="fr" aria-pressed="false" lang="fr">Français</button>
+        <button class="lang" type="button" data-lang="ja" aria-pressed="false" lang="ja">日本語</button>
+        <button class="lang" type="button" data-lang="km" aria-pressed="false" lang="km">ខ្មែរ</button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -790,7 +817,7 @@
       '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>';
   });
 
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") { setMenu(false); setViewer(false); } });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") { setMenu(false); setViewer(false); setLangMenu(false); } });
 
   var langRow = document.getElementById("langRow");
   function setLang(next) {
@@ -799,14 +826,28 @@
     langRow.querySelectorAll(".lang").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === lang)); });
     menuBtn.textContent = L(["Menu", "メニュー"]);
     document.getElementById("closeBtn").textContent = L(["Close", "閉じる"]);
+    langBtn.textContent = LANG_LABEL[lang];
     var y = window.scrollY;
     render(false);
     window.scrollTo(0, y);
   }
+  /* The "Language" button opens and closes the pop-up; picking a language, clicking elsewhere or Escape closes it. */
+  var langBtn = document.getElementById("langBtn");
+  var langMenu = document.getElementById("langMenu");
+  var LANG_LABEL = { en: "Language", fr: "Langue", ja: "言語", km: "ភាសា" };
+  function setLangMenu(open) {
+    langMenu.classList.toggle("open", open);
+    langBtn.setAttribute("aria-expanded", String(open));
+  }
+  langBtn.addEventListener("click", function () { setLangMenu(!langMenu.classList.contains("open")); });
   langRow.addEventListener("click", function (e) {
     var b = e.target.closest(".lang");
-    if (b && b.dataset.lang !== lang) setLang(b.dataset.lang);
+    if (!b) return;
+    if (b.dataset.lang !== lang) setLang(b.dataset.lang);
+    setLangMenu(false);
+    langBtn.focus();
   });
+  document.addEventListener("click", function (e) { if (!langRow.contains(e.target)) setLangMenu(false); });
 
   /* ---------- router + fade ---------- */
   var main = document.getElementById("main");
@@ -839,6 +880,7 @@
   render(false);
 })();
 </script>
+
 
 </body>
 </html>
