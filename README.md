@@ -2,12 +2,12 @@
 
 Live at **https://ideaspot.online** (published automatically by GitHub Pages on every commit to `main`).
 
-> The site is currently **offline**: `index.html` shows an "under construction" page. The full portfolio is kept in the commit history and will come back as a new `index.html`.
+> The site is **online**: `index.html` is the full portfolio, including the shop (orders open on 1 December 2026).
 
 ## Folders
 
 ```
-index.html            the page visitors see (right now: under construction)
+index.html            the page visitors see (the full portfolio)
 pictures/
   canvas/             Canvas, 2025          canvas.jpg, canvas-2 … canvas-5
   amelie/             Amelie, 2026          amelie-1 … amelie-4
